@@ -5,7 +5,6 @@ export default (Styles = StyleSheet.create({
   text: {
     fontSize: 10,
     paddingBottom: 4,
-    fontWeight: "bold",
     color: COMMON.COLOR.Default
   },
   textActive: {

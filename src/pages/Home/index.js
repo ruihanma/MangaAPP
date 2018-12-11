@@ -2,36 +2,26 @@
  * @Type Screen
  * @Name Home
  */
-
+// Core
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
+
+// Components
+import Header from "../../components/Header";
+
+// Styles
+import style from "./style"
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Screen Home</Text>
+      <View style={style.container}>
+        <Header
+          centerTitle={"首页"}
+        />
+        <Text>Screen Home</Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});

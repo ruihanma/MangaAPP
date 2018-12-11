@@ -7,8 +7,10 @@ import React from 'react';
 import {Platform, Text} from 'react-native';
 // Plugins
 import {createBottomTabNavigator} from 'react-navigation';
+import {Loc} from "redux-react-native-i18n";
 import Icon from "react-native-vector-icons/Feather";
-// Screen
+
+// Screens
 import HomeScreen from "../Home"
 import MeScreen from "../Me"
 // Style
@@ -20,12 +22,12 @@ const TabScreen = createBottomTabNavigator({
       path: '/',
       navigationOptions: {
         tabBarLabel: ({tintColor, focused}) => (
-          <Text style={[style.text, focused && style.textActive]}>Home</Text>
+          <Loc style={[style.text, focused && style.textActive]} locKey={"TAB.Home"} />
         ),
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={focused ? "home" : "home"}
-            style={[style.icon , focused && style.iconActive]}
+            style={[style.icon, focused && style.iconActive]}
           />
         )
       }
@@ -35,12 +37,12 @@ const TabScreen = createBottomTabNavigator({
       path: '/me',
       navigationOptions: {
         tabBarLabel: ({tintColor, focused}) => (
-          <Text style={[style.text, focused && style.textActive]}>Me</Text>
+          <Loc style={[style.text, focused && style.textActive]} locKey={"TAB.Me"} />
         ),
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={focused ? "user" : "user"}
-            style={[style.icon , focused && style.iconActive]}
+            style={[style.icon, focused && style.iconActive]}
           />
         )
       }
