@@ -7,9 +7,12 @@ import React from 'react';
 import {Platform, Text} from 'react-native';
 // Plugins
 import {createBottomTabNavigator} from 'react-navigation';
+import Icon from "react-native-vector-icons/Feather";
 // Screen
 import HomeScreen from "../Home"
 import MeScreen from "../Me"
+// Style
+import style from "./style"
 
 const TabScreen = createBottomTabNavigator({
     Home: {
@@ -17,7 +20,13 @@ const TabScreen = createBottomTabNavigator({
       path: '/',
       navigationOptions: {
         tabBarLabel: ({tintColor, focused}) => (
-          <Text>Home</Text>
+          <Text style={[style.text, focused && style.textActive]}>Home</Text>
+        ),
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={focused ? "home" : "home"}
+            style={[style.icon , focused && style.iconActive]}
+          />
         )
       }
     },
@@ -26,7 +35,13 @@ const TabScreen = createBottomTabNavigator({
       path: '/me',
       navigationOptions: {
         tabBarLabel: ({tintColor, focused}) => (
-          <Text>Me</Text>
+          <Text style={[style.text, focused && style.textActive]}>Me</Text>
+        ),
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={focused ? "user" : "user"}
+            style={[style.icon , focused && style.iconActive]}
+          />
         )
       }
     },

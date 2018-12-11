@@ -9,7 +9,6 @@ const firstAction = RootNavigator.router.getActionForPathAndParams('Tab');
 const tempNavState = RootNavigator.router.getStateForAction(firstAction);
 const secondAction = RootNavigator.router.getActionForPathAndParams('SignIn');
 const initialNavState = RootNavigator.router.getStateForAction(
-  secondAction,
   tempNavState
 );
 
