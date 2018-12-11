@@ -4,18 +4,29 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 
 type Props = {};
-export default class App extends Component<Props> {
+class SignInScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Screen Sign in</Text>
+        <Button
+          onPress={() => this.props.navigation.dispatch({ type: 'LOGIN_SUCCESS' })}
+          title="Log in"
+        />
       </View>
     );
   }
 }
+
+
+SignInScreen.navigationOptions = {
+  title: 'Log In',
+};
+
+export default SignInScreen;
 
 const styles = StyleSheet.create({
   container: {

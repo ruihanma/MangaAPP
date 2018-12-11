@@ -5,15 +5,32 @@
  * @format
  * @flow
  */
+// Core
+import React from 'react';
+// Redux
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+// Plugins
+import thunk from 'redux-thunk';
+// Dev Plugins
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-import React, {Component} from 'react';
+// Router
+import { AppNavigator, middleware } from "./src/config/router";
+import AppReducer from './src/redux/reducers';
 
-import AppNavigator from "./src/config/router"
+const store = createStore(
+  AppReducer,
+  composeWithDevTools(applyMiddleware(middleware, thunk)),
+);
+
 
 class App extends React.Component {
   render() {
     return (
+      <Provider store={store}>
         <AppNavigator />
+      </Provider>
     );
   }
 }
