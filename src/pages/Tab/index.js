@@ -22,7 +22,7 @@ const TabScreen = createBottomTabNavigator({
       path: '/',
       navigationOptions: {
         tabBarLabel: ({tintColor, focused}) => (
-          <Loc style={[style.text, focused && style.textActive]} locKey={"TAB.Home"} />
+          <Loc style={[style.text, focused && style.textActive]} locKey={"SCREEN.Home"} />
         ),
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
@@ -37,7 +37,7 @@ const TabScreen = createBottomTabNavigator({
       path: '/me',
       navigationOptions: {
         tabBarLabel: ({tintColor, focused}) => (
-          <Loc style={[style.text, focused && style.textActive]} locKey={"TAB.Me"} />
+          <Loc style={[style.text, focused && style.textActive]} locKey={"SCREEN.Me"} />
         ),
         tabBarIcon: ({tintColor, focused}) => (
           <Icon

@@ -1,13 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {createStackNavigator} from 'react-navigation';
 import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware,
 } from 'react-navigation-redux-helpers';
 // Screen
-import LoginScreen from '../pages/Sign/in';
 import TabScreen from '../pages/Tab';
+import LoginScreen from '../pages/Sign/in';
+import SearchScreen from '../pages/Search';
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
@@ -22,6 +23,9 @@ const RootNavigator = createStackNavigator({
     SignIn: {
       screen: LoginScreen,
     },
+    Search: {
+      screen: SearchScreen
+    }
   }, {
     navigationOptions: {
       header: null
@@ -37,4 +41,4 @@ const mapStateToProps = state => ({
 
 const AppNavigator = connect(mapStateToProps)(AppWithNavigationState);
 
-export { RootNavigator, AppNavigator, middleware };
+export {RootNavigator, AppNavigator, middleware};

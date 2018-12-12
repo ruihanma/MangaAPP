@@ -52,7 +52,7 @@ export default class Header extends React.Component {
                 }
                 {
                   centerText &&
-                  <Text numberOfLines={1} style={[style.text, style.centerText]}>标题</Text>
+                  <Text numberOfLines={1} style={[style.text, style.centerText]}>{centerText}</Text>
                 }
               </View>
             }

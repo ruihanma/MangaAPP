@@ -1,6 +1,6 @@
 /**
  * @Type Screen
- * @Name Home
+ * @Name Search
  */
 // Core
 import React, {Component} from 'react';
@@ -13,17 +13,17 @@ import Header from "../../components/Header";
 import style from "./style"
 
 type Props = {};
-export default class HomeScreen extends Component<Props> {
+export default class SearchScreen extends Component<Props> {
   render() {
     const {navigation} = this.props;
     return (
       <View style={style.container}>
         <Header
-          centerLocKey={"SCREEN.Home"}
-          rightIcon={"search"}
-          rightPress={() => navigation.navigate("Search")}
+          leftIcon={"chevron-left"}
+          leftPress={() => navigation.goBack()}
+          centerLocKey={"SCREEN.Search"}
         />
-        <Text>Screen Home</Text>
+        <Text>SearchScreen</Text>
       </View>
     );
   }

@@ -46,7 +46,6 @@ export default (Styles = StyleSheet.create({
   // 左侧
   left: {
     left: 0,
-    backgroundColor: "#fff"
   },
   leftText: {},
   leftIcon: {},
