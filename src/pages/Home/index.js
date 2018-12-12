@@ -18,7 +18,7 @@ export default class App extends Component<Props> {
     return (
       <View style={style.container}>
         <Header
-          centerTitle={"首页"}
+          centerLocKey={"TAB.Home"}
         />
         <Text>Screen Home</Text>
       </View>
