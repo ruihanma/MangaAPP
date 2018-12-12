@@ -1,37 +1,26 @@
 /**
  * @Type Screen
- * @Name Me
+ * @Name Home
  */
-
+// Core
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Text, View, ScrollView} from 'react-native';
+
+// Components
+import Curtain from "../../components/Curtain";
+
+// Styles
+import style from "./style"
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class MeScreen extends Component<Props> {
   render() {
+    const {navigation} = this.props;
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Screen Me</Text>
-      </View>
+      <ScrollView style={style.container}>
+        <Curtain />
+        <Text>Screen Me</Text>
+      </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});

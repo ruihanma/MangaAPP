@@ -30,7 +30,21 @@ const CommonStyle = {
     }
   },
 
-  // Color
+  // Curtain
+  CURTAIN: {
+    Height: height * 0.4,
+    Padding: 10,
+    Avatar: {
+      Top: height * 0.1,
+      Size: 75,
+    },
+    Name: {
+      Size: 16,
+      Color: COLOR.THEME_DEFAULT.Blank,
+    }
+  },
+
+  // Tab
   TAB: {
     Color: {
       Default: COLOR.THEME_DEFAULT.Light,
