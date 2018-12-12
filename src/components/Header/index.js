@@ -49,7 +49,7 @@ export default class Header extends React.Component {
               <View style={[style.part, style.center]}>
                 {
                   centerLocKey && !centerText &&
-                  <Loc style={[style.text, style.leftText]} locKey={centerLocKey}/>
+                  <Loc style={[style.text, style.centerText]} locKey={centerLocKey}/>
                 }
                 {
                   centerText &&

@@ -11,5 +11,13 @@ export default {
   SETTING: {
     Language: "语言设置",
     LanguageCurrent: "当前语言"
+  },
+
+  BUTTON: {
+    Confirm: "确定",
+    Cancel: "取消",
+    Done: "完成",
+    Ok: "好滴",
+    Search: "搜索",
   }
 }

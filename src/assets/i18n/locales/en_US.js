@@ -11,5 +11,13 @@ export default {
   SETTING: {
     Language: "Language Setting",
     LanguageCurrent: "Current Language",
+  },
+
+  BUTTON: {
+    Confirm: "Confirm",
+    Cancel: "Cancel",
+    Done: "Done",
+    Ok: "Ok",
+    Search: "Search",
   }
 }

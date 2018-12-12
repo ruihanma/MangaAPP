@@ -4,7 +4,7 @@
  */
 // Core
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Picker} from 'react-native';
 
 // Components
 import Header from "../../components/Header/index";
@@ -15,7 +15,10 @@ import Modal from "../../components/Modal";
 import style from "./style"
 import {connect} from "react-redux";
 // Assets
-import {languagesMap} from "../../assets/i18n"
+import {languagesMap, languages} from "../../assets/i18n";
+// Redux
+import {resetLanguage} from '../../redux/actions/SettingAction'
+
 
 type Props = {};
 
@@ -24,14 +27,18 @@ class SettingLanguageScreen extends Component<Props> {
     super(props);
 
     this.state = {
-      isVisible: false
+      isVisible: false,
+
+      language: this.props.Language
     };
-    console.log("SettingLanguage.props", this.props)
+    // console.log("SettingLanguage.props", this.props)
+
+    this.updateLanguage = this.updateLanguage.bind(this);
   }
 
   render() {
     const {navigation, Language} = this.props;
-    const {isVisible} = this.state;
+    const {isVisible, language} = this.state;
     return (
       <View style={style.container}>
         <Header
@@ -39,20 +46,35 @@ class SettingLanguageScreen extends Component<Props> {
           leftPress={() => navigation.goBack()}
           centerLocKey={"SCREEN.Setting.Language"}
         />
-        <Modal isVisible={isVisible} style={style.modal} toggleVisible={() => this.handleModal(isVisible)}>
+        <Modal isVisible={isVisible} style={style.modal} toggleVisible={() => this.toggleVisible(isVisible)}>
           <View style={style.modalContainer}>
             <Header
               noStatus={true}
+              leftIcon={"x"}
+              leftPress={() => this.toggleVisible(isVisible)}
               centerLocKey={"SCREEN.Setting.Language"}
-              rightIcon={"x"}
-              rightPress={() => this.handleModal(isVisible)}
+              rightLocKey={"BUTTON.Confirm"}
+              rightPress={() => this.updateLanguage(language)}
             />
+            <Picker
+              selectedValue={this.state.language}
+              style={style.picker}
+              itemStyle={style.pickerItem}
+              onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}
+            >
+              {
+                languages && languages.length > 0 &&
+                languages.map((lang, key) => {
+                  return <Picker.Item key={key} label={lang.name} value={lang.code}/>
+                })
+              }
+            </Picker>
           </View>
         </Modal>
 
         <View>
           <Cell
-            cellPress={() => this.handleModal(isVisible)}
+            cellPress={() => this.toggleVisible(isVisible)}
             leftIcon={"feather"}
             centerLocKey={"SETTING.LanguageCurrent"}
             rightText={languagesMap[Language]}
@@ -62,9 +84,18 @@ class SettingLanguageScreen extends Component<Props> {
     );
   }
 
-  handleModal = (isVisible) => {
-    console.log("isVisible", isVisible);
+  // 反选模态窗
+  toggleVisible = (isVisible) => {
     this.setState({isVisible: !isVisible})
+  };
+
+  // 更新语言state
+  updateLanguage = (language) => {
+    this.setState({language, isVisible: false}, () => {
+      this.props.reset_language({language});
+      // console.log("this.state", this.state);
+    })
+
   }
 }
 
@@ -72,7 +103,9 @@ const mapStateToProps = state => ({
   Language: state.i18n.currentLanguage,
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  reset_language: (params) => dispatch(resetLanguage(params)),
+});
 
 export default connect(
   mapStateToProps,

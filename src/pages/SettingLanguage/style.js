@@ -8,7 +8,7 @@ export default (Styles = StyleSheet.create({
 
   modal: {
     margin: 0,
-    position:"relative"
+    position: "relative"
   },
   modalContainer: {
     position: "absolute",
@@ -17,5 +17,12 @@ export default (Styles = StyleSheet.create({
     top: COMMON.HEIGHT * 0.6,
     left: 0,
     backgroundColor: "rgba(0,0,0,0.4)",
+  },
+  picker: {
+    width: "100%",
+    height: "100%",
+  },
+  pickerItem: {
+    color: "#fff",
   }
 }))
