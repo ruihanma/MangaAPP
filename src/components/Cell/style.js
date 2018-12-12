@@ -56,9 +56,12 @@ export default (Styles = StyleSheet.create({
   centerText: {
 
   },
-  right: {},
+  right: {
+
+  },
   rightText: {
-    fontSize: COMMON.CELL.Font.Size * 0.85
+    fontSize: COMMON.CELL.Font.Size * 0.85,
+    paddingRight: COMMON.CELL.Padding,
   },
   rightIcon: {
     fontSize: COMMON.CELL.Icon.Size * 0.7

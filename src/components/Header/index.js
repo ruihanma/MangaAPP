@@ -11,15 +11,16 @@ export default class Header extends React.Component {
     const {leftLocKey, leftText, leftIcon, leftPress} = this.props;
     const {rightLocKey, rightText, rightIcon, rightPress} = this.props;
     const {centerLocKey, centerText} = this.props;
+    const {noStatus} = this.props;
 
     return (
       <React.Fragment>
         {/*默认 StatusBar 的样式*/}
         <StatusBar barStyle={"light-content"}/>
 
-        <View style={style.container}>
+        <View style={[style.container, noStatus && style.containerWithoutStatus]}>
 
-          <View style={style.content}>
+          <View style={[style.content, noStatus && style.contentWithoutStatus]}>
             {/*左边部分*/}
             {
               (leftIcon || leftLocKey || leftText || leftPress) &&

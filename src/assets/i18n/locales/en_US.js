@@ -10,5 +10,6 @@ export default {
 
   SETTING: {
     Language: "Language Setting",
+    LanguageCurrent: "Current Language",
   }
 }

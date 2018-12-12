@@ -8,12 +8,20 @@ export default (Styles = StyleSheet.create({
     backgroundColor: COMMON.HEADER.Background.Color
   },
 
+  containerWithoutStatus: {
+    height: COMMON.HEADER.Height,
+  },
+
   content: {
     width: "100%",
     height: COMMON.HEADER.Height,
     marginTop: COMMON.STATUS.Height,
     flexDirection: "row",
-    position: "relative"
+    position: "relative",
+  },
+
+  contentWithoutStatus: {
+    marginTop: 0,
   },
 
   // 内部结构样式（3个部分）
