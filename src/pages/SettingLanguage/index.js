@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 
 // Components
-import Header from "../../../components/Header";
+import Header from "../../components/Header/index";
 
 // Styles
 import style from "./style"

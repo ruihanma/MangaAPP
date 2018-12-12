@@ -9,7 +9,7 @@ import {
 import TabScreen from '../pages/Tab';
 import LoginScreen from '../pages/Sign/in';
 import SearchScreen from '../pages/Search';
-import LanguageScreen from '../pages/Me/SettingLanguage';
+import LanguageScreen from '../pages/SettingLanguage';
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
