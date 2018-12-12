@@ -1,8 +1,6 @@
 import React from "react";
-import {Text, View, TouchableOpacity, Image} from "react-native";
+import {Text, View, Image} from "react-native";
 // Plugins
-import Icon from "react-native-vector-icons/Feather"
-import {Loc} from "redux-react-native-i18n"
 // Style
 import style from "./style"
 
