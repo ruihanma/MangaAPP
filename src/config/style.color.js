@@ -3,6 +3,8 @@ export default CommonColor = {
     Primary: "#333",
     Dark: "#000",
     Light: "#666",
-    Blank: "#fff"
+    Lightest: "#eee",
+    Blank: "#fff",
+    Transparent: "transparent",
   }
 }

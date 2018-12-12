@@ -44,6 +44,27 @@ const CommonStyle = {
     }
   },
 
+  CELL: {
+    Height: 50,
+    Padding: 10,
+    Border: {
+      Style: "solid",
+      Color: COLOR.THEME_DEFAULT.Lightest,
+      Width: 0.5,
+    },
+    Background: {
+      Color: COLOR.THEME_DEFAULT.Blank,
+    },
+    Font: {
+      Size: 16,
+      Color: COLOR.THEME_DEFAULT.Primary,
+    },
+    Icon: {
+      Size: 20,
+      Color: COLOR.THEME_DEFAULT.Primary,
+    }
+  },
+
   // Tab
   TAB: {
     Color: {

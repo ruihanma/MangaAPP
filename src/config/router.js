@@ -5,10 +5,11 @@ import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware,
 } from 'react-navigation-redux-helpers';
-// Screen
+// Screens
 import TabScreen from '../pages/Tab';
 import LoginScreen from '../pages/Sign/in';
 import SearchScreen from '../pages/Search';
+import LanguageScreen from '../pages/Me/SettingLanguage';
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
@@ -24,8 +25,11 @@ const RootNavigator = createStackNavigator({
       screen: LoginScreen,
     },
     Search: {
-      screen: SearchScreen
-    }
+      screen: SearchScreen,
+    },
+    SettingLanguage: {
+      screen: LanguageScreen,
+    },
   }, {
     navigationOptions: {
       header: null

@@ -1,12 +1,14 @@
 export default {
-  TAB:{
-    Home: "Home",
-    Me: "Me"
-  },
-
   SCREEN: {
     Search: "Search",
     Home: "Home",
-    Me: "Me"
+    Me: "Me",
+    Setting: {
+      Language: "Language Setting"
+    }
+  },
+
+  SETTING: {
+    Language: "Language Setting",
   }
 }
