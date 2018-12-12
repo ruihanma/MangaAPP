@@ -18,7 +18,7 @@ export default class MeScreen extends Component<Props> {
     const {navigation} = this.props;
     return (
       <ScrollView style={style.container}>
-        <Curtain />
+        <Curtain name={"盖尔 · 加朵"} />
         <Text>Screen Me</Text>
       </ScrollView>
     );
