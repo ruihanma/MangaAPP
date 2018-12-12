@@ -16,10 +16,16 @@ const CommonStyle = {
   // Header
   HEADER: {
     Height: 44,
+    Padding: 10,
     Background: {
       Color: COLOR.THEME_DEFAULT.Primary,
     },
     Font: {
+      Size: 14,
+      Color: COLOR.THEME_DEFAULT.Blank,
+    },
+    Icon: {
+      Size: 20,
       Color: COLOR.THEME_DEFAULT.Blank,
     }
   },

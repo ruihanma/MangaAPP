@@ -29,17 +29,18 @@ export default (Styles = StyleSheet.create({
     zIndex: 99,
     minWidth: COMMON.HEADER.Height,
     height: COMMON.HEADER.Height,
-    paddingHorizontal: 10,
+    paddingHorizontal: COMMON.HEADER.Padding,
   },
   // 公用文字样式
   text: {
+    fontSize: COMMON.HEADER.Font.Size,
     color: COMMON.HEADER.Font.Color,
     marginTop: 1
   },
   // 公用icon样式
   icon: {
-    fontSize: 20,
-    color: COMMON.HEADER.Font.Color,
+    fontSize: COMMON.HEADER.Icon.Size,
+    color: COMMON.HEADER.Icon.Color,
   },
 
   // 独立样式
@@ -56,8 +57,8 @@ export default (Styles = StyleSheet.create({
     paddingHorizontal: COMMON.HEADER.Height
   },
   centerText: {
-    fontSize: 16,
-    lineHeight: 18
+    fontSize: COMMON.HEADER.Font.Size * 1.2,
+    // lineHeight: 18
   },
 
   // 右侧
@@ -65,7 +66,7 @@ export default (Styles = StyleSheet.create({
     right: 0,
   },
   rightText: {
-    paddingLeft: 5
+    paddingLeft: COMMON.HEADER.Padding / 2,
   },
   rightIcon: {},
 
