@@ -92,7 +92,7 @@ class SettingLanguageScreen extends Component<Props> {
   // 更新语言state
   updateLanguage = (language) => {
     this.setState({language, isVisible: false}, () => {
-      this.props.reset_language({language});
+      this.props.reset_language(language);
       // console.log("this.state", this.state);
     })
 
@@ -104,7 +104,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  reset_language: (params) => dispatch(resetLanguage(params)),
+  reset_language: (language) => dispatch(resetLanguage(language)),
 });
 
 export default connect(
