@@ -1,4 +1,5 @@
 import * as Types from './ActionType';
+// Plugins
 import {i18nActions} from 'redux-react-native-i18n';
 
 // 重置语言 /////////////////////////////////////////////////////////////////
@@ -26,13 +27,13 @@ export const onResetLanguageFailure = (error) => {
 };
 
 // 重置语言 方法
-export const resetLanguage = (params) => {
+export const resetLanguage = (language) => {
 
   return dispatch => {
     dispatch(onResetLanguageRequest());
 
-    dispatch(onResetLanguageSuccess(params.language));
-    dispatch(i18nActions.setCurrentLanguage(params.language));
+    dispatch(onResetLanguageSuccess(language));
+    dispatch(i18nActions.setCurrentLanguage(language));
   }
 };
 // 重置语言 End /////////////////////////////////////////////////////////////////
