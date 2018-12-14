@@ -1,13 +1,8 @@
-import React, {Component} from "react";
-import {Text, View, Picker, TouchableHighlight, Platform} from "react-native";
-
+import React from "react";
 // Plugins
 import Modal from "react-native-modal";
 // Plugins
-import Icon from "react-native-vector-icons/Feather"
-import {Loc} from "redux-react-native-i18n"
 // Style
-import style from "./style"
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
