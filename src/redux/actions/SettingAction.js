@@ -28,12 +28,16 @@ export const onResetLanguageFailure = (error) => {
 
 // 重置语言 方法
 export const resetLanguage = (language) => {
-
-  return dispatch => {
+  return (dispatch) => {
     dispatch(onResetLanguageRequest());
-
-    dispatch(onResetLanguageSuccess(language));
-    dispatch(i18nActions.setCurrentLanguage(language));
+    if (language) {
+      dispatch(i18nActions.setCurrentLanguage(language));
+      dispatch(onResetLanguageSuccess());
+    }
+    else {
+      dispatch(onResetLanguageFailure("No Util Language Found"));
+      dispatch(i18nActions.setCurrentLanguage("en"));
+    }
   }
 };
 // 重置语言 End /////////////////////////////////////////////////////////////////

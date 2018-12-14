@@ -2,7 +2,6 @@ import * as Types from '../actions/ActionType';
 
 const initialLanguageState = {
   Loading: false,
-  Language: 'cn',
   Error: null,
 
 };
@@ -18,7 +17,6 @@ const LanguageReducer = (state = initialLanguageState, action) => {
     case Types.RESET_LANGUAGE_SUCCESS :
       return Object.assign({}, state, {
         Loading: false,
-        Language: action.language,
       });
     case Types.RESET_LANGUAGE_FAILURE :
       return Object.assign({}, state, {

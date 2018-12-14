@@ -1,9 +1,7 @@
 import * as Types from '../actions/ActionType';
 
 const initialUtilState = {
-  // 输出状态
   Loading: false,
-  Language: null,
 
   // 系统读取状态
   LoadingSystem: false,
@@ -12,23 +10,24 @@ const initialUtilState = {
 
   // 本地初始状态
   LoadingLocal: false,
-  LanguageLocal: null,
   ErrorLocal: null,
 
+  //
+  Saving: false,
+  ErrorSave: null
 };
 
 const UtilReducer = (state = initialUtilState, action) => {
   switch (action.type) {
 
     // 读取语言
-    case Types.READ_LANGUAGE_START :
+    case Types.SET_LANGUAGE_START :
       return Object.assign({}, state, {
         Loading: true,
       });
-    case Types.READ_LANGUAGE_END :
+    case Types.SET_LANGUAGE_ENDED :
       return Object.assign({}, state, {
         Loading: false,
-        Language: action.language
       });
 
     // 读取本地语言
@@ -39,7 +38,6 @@ const UtilReducer = (state = initialUtilState, action) => {
     case Types.READ_LOCAL_LANGUAGE_SUCCESS :
       return Object.assign({}, state, {
         LoadingLocal: false,
-        LanguageLocal: action.language,
       });
     case Types.READ_LOCAL_LANGUAGE_FAILURE :
       return Object.assign({}, state, {
@@ -64,6 +62,22 @@ const UtilReducer = (state = initialUtilState, action) => {
         LanguageSystem: action.error,
       });
 
+    // 保存语言到本地
+    case Types.SAVE_LANGUAGE_LOCAL_REQUEST :
+      return Object.assign({}, state, {
+        Saving: true,
+      });
+    case Types.SAVE_LANGUAGE_LOCAL_SUCCESS :
+      return Object.assign({}, state, {
+        Saving: false,
+        LanguageLocal: action.language,
+      });
+    case Types.SAVE_LANGUAGE_LOCAL_FAILURE :
+      // 如果失败 给与默认语言：英语
+      return Object.assign({}, state, {
+        Saving: false,
+        ErrorSave: action.error,
+      });
 
     default:
       return state;

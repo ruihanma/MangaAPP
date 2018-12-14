@@ -5,6 +5,7 @@
  * @format
  * @flow
  */
+"use strict"
 // Core
 import React from 'react';
 // Redux
@@ -22,7 +23,7 @@ import {languages, dictionaries} from "./src/assets/i18n/index";
 import {AppNavigator, middleware} from "./src/config/router";
 import AppReducer from './src/redux/reducers';
 // Utils
-import {readLanguage} from "./src/redux/actions/UtilAction";
+import {setLanguage} from "./src/redux/actions/UtilAction";
 
 // Redux
 const store = createStore(
@@ -30,13 +31,11 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(middleware, thunk)),
 );
 
-// Set Language
 store.dispatch(i18nActions.setDictionaries(dictionaries));
 store.dispatch(i18nActions.setLanguages(languages));
 store.dispatch(i18nActions.setCurrentLanguage("cn"));
-
-// Check Local Storage
-store.dispatch(readLanguage());
+// Set Language
+store.dispatch(setLanguage());
 
 class App extends React.Component {
   render() {
