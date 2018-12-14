@@ -19,7 +19,11 @@ const initialUtilState = {
 
   // 清除本地
   Clearing: false,
-  ErrorClear: null
+  ErrorClear: null,
+
+  // 提示信息
+  ToastVisible: false,
+  ToastMessage: null,
 };
 
 const UtilReducer = (state = initialUtilState, action) => {
@@ -98,6 +102,18 @@ const UtilReducer = (state = initialUtilState, action) => {
       return Object.assign({}, state, {
         Clearing: false,
         ErrorSave: action.error,
+      });
+
+    // 读取语言
+    case Types.TOAST_APPEAR :
+      return Object.assign({}, state, {
+        ToastVisible: true,
+        ToastMessage: action.message
+      });
+    case Types.TOAST_HIDDEN :
+      return Object.assign({}, state, {
+        ToastVisible: false,
+        ToastMessage: null
       });
 
     default:

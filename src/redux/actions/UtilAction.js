@@ -175,7 +175,7 @@ export const saveLanguageLocal = (language) => {
   return (dispatch, getState) => {
     dispatch(onSaveLanguageLocalRequest());
 
-    if(language){
+    if (language) {
       storage
         .save({
           key: "LANGUAGE",
@@ -192,7 +192,7 @@ export const saveLanguageLocal = (language) => {
         })
       ;
     }
-    else{
+    else {
       dispatch(onSaveLanguageLocalFailure("No Language Detected"))
     }
 
@@ -232,3 +232,17 @@ export const clearLocal = () => {
   }
 };
 // 保存语言 End /////////////////////////////////////////////////////////////////
+
+// 显示提示信息 /////////////////////////////////////////////////////////////////
+export const toastAppear = (message) => {
+  return {
+    type: Types.TOAST_APPEAR,
+    message
+  }
+};
+export const toastHidden = () => {
+  return {
+    type: Types.TOAST_HIDDEN
+  }
+};
+// 显示提示信息 End /////////////////////////////////////////////////////////////////
