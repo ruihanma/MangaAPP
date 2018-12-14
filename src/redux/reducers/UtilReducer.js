@@ -10,11 +10,16 @@ const initialUtilState = {
 
   // 本地初始状态
   LoadingLocal: false,
+  LanguageLocal: null,
   ErrorLocal: null,
 
-  //
+  // 保存本地
   Saving: false,
-  ErrorSave: null
+  ErrorSave: null,
+
+  // 清除本地
+  Clearing: false,
+  ErrorClear: null
 };
 
 const UtilReducer = (state = initialUtilState, action) => {
@@ -38,6 +43,7 @@ const UtilReducer = (state = initialUtilState, action) => {
     case Types.READ_LOCAL_LANGUAGE_SUCCESS :
       return Object.assign({}, state, {
         LoadingLocal: false,
+        LanguageLocal: action.language
       });
     case Types.READ_LOCAL_LANGUAGE_FAILURE :
       return Object.assign({}, state, {
@@ -76,6 +82,21 @@ const UtilReducer = (state = initialUtilState, action) => {
       // 如果失败 给与默认语言：英语
       return Object.assign({}, state, {
         Saving: false,
+        ErrorSave: action.error,
+      });
+
+    // 清除语言本地
+    case Types.CLEAR_LOCAL_REQUEST :
+      return Object.assign({}, state, {
+        Clearing: true,
+      });
+    case Types.CLEAR_LOCAL_SUCCESS :
+      return Object.assign({}, state, {
+        Clearing: false,
+      });
+    case Types.CLEAR_LOCAL_FAILURE :
+      return Object.assign({}, state, {
+        Clearing: false,
         ErrorSave: action.error,
       });
 

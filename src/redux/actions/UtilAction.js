@@ -40,9 +40,10 @@ export const onReadLocalLanguageRequest = () => {
   }
 };
 // 读取本地语言 成功
-export const onReadLocalLanguageSuccess = () => {
+export const onReadLocalLanguageSuccess = (language) => {
   return {
-    type: Types.READ_LOCAL_LANGUAGE_SUCCESS
+    type: Types.READ_LOCAL_LANGUAGE_SUCCESS,
+    language
   }
 };
 // 读取本地语言 失败
@@ -63,7 +64,7 @@ export const readLocalLanguage = () => {
       })
       .then(res => {
         console.log("读取本地成功", res);
-        dispatch(onReadLocalLanguageSuccess());
+        dispatch(onReadLocalLanguageSuccess(res.LANGUAGE));
         // 设置显示语言
         dispatch(resetLanguage(res.LANGUAGE));
         // 完成
@@ -122,12 +123,15 @@ export const readSystemLanguage = () => {
       if (lang && languagesMap[lang]) {
         // 存储到本地
         dispatch(saveLanguageLocal(lang));
+        // 设置显示语言
+        dispatch(resetLanguage(lang));
         // 完成
         dispatch(onSetLanguageEnd());
       }
       else {
         // 设置默认英语显示
         dispatch(saveLanguageLocal());
+        dispatch(resetLanguage("en"));
         dispatch(onSetLanguageEnd("en"));
       }
     }
@@ -136,6 +140,7 @@ export const readSystemLanguage = () => {
       dispatch(onReadSystemLanguageFailure());
       // 存到本地
       dispatch(saveLanguageLocal("en"));
+      dispatch(resetLanguage("en"));
       // 完成
       dispatch(onSetLanguageEnd());
     }
@@ -143,28 +148,28 @@ export const readSystemLanguage = () => {
 };
 // 读取系统语言 End /////////////////////////////////////////////////////////////////
 
-// 保存语言 /////////////////////////////////////////////////////////////////
-// 保存语言 开始
+// 保存语言到本地 /////////////////////////////////////////////////////////////////
+// 保存语言到本地 开始
 export const onSaveLanguageLocalRequest = () => {
   return {
-    type: Types.READ_SYSTEM_LANGUAGE_REQUEST,
+    type: Types.SAVE_LANGUAGE_LOCAL_REQUEST,
   }
 };
-// 保存语言 成功
+// 保存语言到本地 成功
 export const onSaveLanguageLocalSuccess = (language) => {
   return {
-    type: Types.READ_SYSTEM_LANGUAGE_SUCCESS,
+    type: Types.SAVE_LANGUAGE_LOCAL_SUCCESS,
     language
   }
 };
-// 保存语言 失败
+// 保存语言到本地 失败
 export const onSaveLanguageLocalFailure = (error) => {
   return {
-    type: Types.READ_SYSTEM_LANGUAGE_FAILURE,
+    type: Types.SAVE_LANGUAGE_LOCAL_FAILURE,
     error
   }
 };
-// 保存语言 方法
+// 保存语言到本地 方法
 export const saveLanguageLocal = (language) => {
 
   return (dispatch, getState) => {
@@ -180,11 +185,9 @@ export const saveLanguageLocal = (language) => {
           expires: null
         })
         .then(res => {
-          console.log("res", res);
           dispatch(onSaveLanguageLocalSuccess(language))
         })
         .catch(err => {
-          console.log("err", err);
           dispatch(onSaveLanguageLocalFailure("Save Error"))
         })
       ;
@@ -192,6 +195,39 @@ export const saveLanguageLocal = (language) => {
     else{
       dispatch(onSaveLanguageLocalFailure("No Language Detected"))
     }
+
+  }
+};
+// 保存语言 End /////////////////////////////////////////////////////////////////
+
+// 清除本地信息 /////////////////////////////////////////////////////////////////
+// 清除本地信息 开始
+export const onClearLocalRequest = () => {
+  return {
+    type: Types.CLEAR_LOCAL_REQUEST,
+  }
+};
+// 清除本地信息 成功
+export const onClearLocalSuccess = () => {
+  return {
+    type: Types.CLEAR_LOCAL_SUCCESS
+  }
+};
+// 清除本地信息 失败
+export const onClearLocalFailure = (error) => {
+  return {
+    type: Types.CLEAR_LOCAL_FAILURE,
+    error
+  }
+};
+// 清除本地信息 方法
+export const clearLocal = () => {
+
+  return (dispatch) => {
+    dispatch(onClearLocalRequest());
+
+    storage._s.clear();
+    dispatch(onClearLocalSuccess());
 
   }
 };

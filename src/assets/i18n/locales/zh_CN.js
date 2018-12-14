@@ -10,7 +10,8 @@ export default {
 
   SETTING: {
     Language: "语言设置",
-    LanguageCurrent: "当前语言"
+    LanguageCurrent: "当前语言",
+    ClearCache: "清除缓存"
   },
 
   BUTTON: {

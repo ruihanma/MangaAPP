@@ -17,7 +17,8 @@ import {connect} from "react-redux";
 // Assets
 import {languagesMap, languages} from "../../assets/i18n";
 // Redux
-import {resetLanguage} from '../../redux/actions/SettingAction'
+import {resetLanguage} from '../../redux/actions/SettingAction';
+import {saveLanguageLocal} from '../../redux/actions/UtilAction';
 
 
 type Props = {};
@@ -93,6 +94,7 @@ class SettingLanguageScreen extends Component<Props> {
   updateLanguage = (language) => {
     this.setState({language, isVisible: false}, () => {
       this.props.reset_language(language);
+      this.props.save_language_local(language);
       // console.log("this.state", this.state);
     })
 
@@ -105,6 +107,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   reset_language: (language) => dispatch(resetLanguage(language)),
+  save_language_local: (language) => dispatch(saveLanguageLocal(language)),
 });
 
 export default connect(
