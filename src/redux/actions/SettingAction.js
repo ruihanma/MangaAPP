@@ -27,12 +27,20 @@ export const onResetLanguageFailure = (error) => {
 };
 
 // 重置语言 方法
-export const resetLanguage = (language) => {
+export const resetLanguage = (language, delay) => {
   return (dispatch) => {
     dispatch(onResetLanguageRequest());
     if (language) {
-      dispatch(i18nActions.setCurrentLanguage(language));
-      dispatch(onResetLanguageSuccess());
+      if(delay) {
+        setTimeout(() => {
+          dispatch(i18nActions.setCurrentLanguage(language));
+          dispatch(onResetLanguageSuccess());
+        }, delay)
+      }
+      else{
+        dispatch(i18nActions.setCurrentLanguage(language));
+        dispatch(onResetLanguageSuccess());
+      }
     }
     else {
       dispatch(onResetLanguageFailure("No Util Language Found"));

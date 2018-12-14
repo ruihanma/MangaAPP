@@ -10,6 +10,7 @@ import {View} from 'react-native';
 import Header from "../../components/Header/index";
 import Cell from "../../components/Cell";
 import Modal from "./modal";
+import Spinner from "../../components/Spinner"
 
 // Styles
 import style from "./style"
@@ -31,7 +32,9 @@ class SettingLanguageScreen extends Component<Props> {
     this.state = {
       isVisible: false,
 
-      language: this.props.Language
+      language: this.props.Language,
+
+      loading: true
     };
     // console.log("SettingLanguage.props", this.props)
 
@@ -56,6 +59,11 @@ class SettingLanguageScreen extends Component<Props> {
                toggleVisible={() => this.toggleVisible(isVisible)}
                updateLanguage={() => this.updateLanguage(language)}
         />
+
+        {
+          this.props.Loading &&
+          <Spinner/>
+        }
 
         <View>
           <Cell
@@ -82,20 +90,20 @@ class SettingLanguageScreen extends Component<Props> {
   // 更新语言state
   updateLanguage(language) {
     this.setState({language, isVisible: false}, () => {
-      this.props.reset_language(language);
+      this.props.reset_language(language, 1500);
       this.props.save_language_local(language);
       // console.log("this.state", this.state);
     })
-
   }
 }
 
 const mapStateToProps = state => ({
   Language: state.i18n.currentLanguage,
+  Loading: state.setting.Loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  reset_language: (language) => dispatch(resetLanguage(language)),
+  reset_language: (language, delay) => dispatch(resetLanguage(language, delay)),
   save_language_local: (language) => dispatch(saveLanguageLocal(language)),
 });
 

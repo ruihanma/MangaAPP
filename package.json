@@ -12,6 +12,8 @@
     "react-native-blur": "^3.2.2",
     "react-native-iphone-x-helper": "^1.2.0",
     "react-native-modal": "^7.0.2",
+    "react-native-root-toast": "^3.0.1",
+    "react-native-spinkit": "^1.1.1",
     "react-native-storage": "^1.0.0-beta.0",
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^2.3.0",

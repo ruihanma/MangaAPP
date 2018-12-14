@@ -4,6 +4,7 @@ import COMMON from "../../config/style"
 export default (Styles = StyleSheet.create({
   container: {
     backgroundColor: '#F5FCFF',
+    position: "relative"
   },
 
   modal: {
