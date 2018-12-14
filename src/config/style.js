@@ -71,8 +71,13 @@ const CommonStyle = {
       Default: COLOR.THEME_DEFAULT.Light,
       Dark: COLOR.THEME_DEFAULT.Dark
     },
-
   },
+
+  // Banner
+  BANNER:{
+    Height: height * 0.2,
+    Padding: 10,
+  }
 
 };
 

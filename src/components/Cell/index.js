@@ -10,7 +10,6 @@ export default class Curtain extends React.Component {
   constructor(props){
     super(props);
 
-    console.log("cell.props", this.props)
   }
   componentDidMount(){
 
