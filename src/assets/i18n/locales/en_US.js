@@ -3,6 +3,7 @@ export default {
     Search: "Search",
     Home: "Home",
     Me: "Me",
+    Genus: "Genus",
     Setting: {
       Language: "Language Setting"
     }

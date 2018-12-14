@@ -13,6 +13,8 @@ import Icon from "react-native-vector-icons/Feather";
 // Screens
 import HomeScreen from "../Home"
 import MeScreen from "../Me"
+import GenusScreen from '../Genus';
+
 // Style
 import style from "./style"
 
@@ -27,6 +29,21 @@ const TabScreen = createBottomTabNavigator({
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={focused ? "home" : "home"}
+            style={[style.icon, focused && style.iconActive]}
+          />
+        )
+      }
+    },
+    Genus: {
+      screen: GenusScreen,
+      path: '/genus',
+      navigationOptions: {
+        tabBarLabel: ({tintColor, focused}) => (
+          <Loc style={[style.text, focused && style.textActive]} locKey={"SCREEN.Genus"} />
+        ),
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={focused ? "grid" : "grid"}
             style={[style.icon, focused && style.iconActive]}
           />
         )

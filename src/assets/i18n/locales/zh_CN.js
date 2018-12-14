@@ -3,6 +3,7 @@ export default {
     Search: "搜索",
     Home: "首页",
     Me: "我",
+    Genus: "分类",
     Setting: {
       Language: "语言设置",
     }

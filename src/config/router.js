@@ -17,7 +17,8 @@ const middleware = createReactNavigationReduxMiddleware(
 );
 
 
-const RootNavigator = createStackNavigator({
+const RootNavigator = createStackNavigator(
+  {
     Tab: {
       screen: TabScreen
     },
