@@ -1,6 +1,7 @@
 import * as Types from './ActionType';
 // Plugins
 import {i18nActions} from 'redux-react-native-i18n';
+import {toastInitial} from "./UtilAction";
 
 // 重置语言 /////////////////////////////////////////////////////////////////
 // 重置语言 开始
@@ -31,13 +32,14 @@ export const resetLanguage = (language, delay) => {
   return (dispatch) => {
     dispatch(onResetLanguageRequest());
     if (language) {
-      if(delay) {
+      if (delay) {
         setTimeout(() => {
           dispatch(i18nActions.setCurrentLanguage(language));
           dispatch(onResetLanguageSuccess());
+          dispatch(toastInitial("成功", 1500));
         }, delay)
       }
-      else{
+      else {
         dispatch(i18nActions.setCurrentLanguage(language));
         dispatch(onResetLanguageSuccess());
       }

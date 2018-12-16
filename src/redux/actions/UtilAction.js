@@ -234,6 +234,15 @@ export const clearLocal = () => {
 // 保存语言 End /////////////////////////////////////////////////////////////////
 
 // 显示提示信息 /////////////////////////////////////////////////////////////////
+export const toastInitial = (message, duration) => {
+  return dispatch => {
+    dispatch(toastAppear(message));
+
+    setTimeout(() => {
+      dispatch(toastHidden())
+    }, duration)
+  }
+};
 export const toastAppear = (message) => {
   return {
     type: Types.TOAST_APPEAR,

@@ -104,7 +104,10 @@ const UtilReducer = (state = initialUtilState, action) => {
         ErrorSave: action.error,
       });
 
-    // 读取语言
+    // 提示
+    case Types.TOAST_INITAL :
+      return Object.assign({}, state, {
+      });
     case Types.TOAST_APPEAR :
       return Object.assign({}, state, {
         ToastVisible: true,

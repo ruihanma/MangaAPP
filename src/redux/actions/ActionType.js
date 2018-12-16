@@ -45,5 +45,6 @@ export const CLEAR_LOCAL_SUCCESS = "CLEAR_LOCAL_SUCCESS";
 export const CLEAR_LOCAL_FAILURE = "CLEAR_LOCAL_FAILURE";
 
 // 显示提示信息
+export const TOAST_INITAL = "TOAST_INITAL";
 export const TOAST_APPEAR = "TOAST_APPEAR";
 export const TOAST_HIDDEN = "TOAST_HIDDEN";
