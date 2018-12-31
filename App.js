@@ -16,7 +16,9 @@ import {createStore, applyMiddleware} from 'redux';
 // Plugins
 import thunk from 'redux-thunk';
 import {i18nActions} from "redux-react-native-i18n";
+// Components
 import Toast from "./src/components/Toast"
+import Spinner from "./src/components/Spinner";
 // Dev Plugins
 import {composeWithDevTools} from 'redux-devtools-extension';
 // Assets
@@ -46,6 +48,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <Toast/>
+        <Spinner/>
         <AppNavigator/>
       </Provider>
     );

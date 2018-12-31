@@ -21,5 +21,9 @@ export default {
     Done: "Done",
     Ok: "Ok",
     Search: "Search",
-  }
+  },
+
+  DURATION: {
+    Loading: "Loading"
+  },
 }

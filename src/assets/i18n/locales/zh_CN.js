@@ -21,5 +21,9 @@ export default {
     Done: "完成",
     Ok: "好滴",
     Search: "搜索",
-  }
+  },
+
+  DURATION: {
+    Loading: "加载中"
+  },
 }

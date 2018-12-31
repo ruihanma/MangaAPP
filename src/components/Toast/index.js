@@ -1,11 +1,9 @@
 import React from 'react';
 import {Text} from 'react-native';
 import Toast from 'react-native-root-toast';
-import {resetLanguage} from "../../redux/actions/SettingAction";
-import {toastHidden} from "../../redux/actions/UtilAction";
 import {connect} from "react-redux";
 
- class ToastComponent extends React.Component{
+class ToastComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,9 +26,7 @@ const mapStateToProps = state => ({
   Message: state.util.ToastMessage
 });
 
-const mapDispatchToProps = dispatch => ({
-  toast_hidden: () => dispatch(toastHidden())
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,

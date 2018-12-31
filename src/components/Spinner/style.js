@@ -9,7 +9,13 @@ export default (Styles = StyleSheet.create({
     width: COMMON.WIDTH,
     height: COMMON.HEIGHT,
     position: "absolute",
-    zIndex: 9999,
-    top:0
+    zIndex: 99999,
+    top: 0
+  },
+  text: {
+    color: "#fff",
+    fontSize: 20,
+    paddingVertical: 15,
+    textAlign: "center"
   }
 }));

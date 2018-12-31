@@ -255,3 +255,28 @@ export const toastHidden = () => {
   }
 };
 // 显示提示信息 End /////////////////////////////////////////////////////////////////
+
+// 显示Spin /////////////////////////////////////////////////////////////////
+export const spinInitial = (message, genre) => {
+  return dispatch => {
+    dispatch(spinAppear(message, genre));
+
+    // 默认30秒关闭
+    setTimeout(() => {
+      dispatch(spinHidden())
+    }, 30000)
+  }
+};
+export const spinAppear = (message, genre) => {
+  return {
+    type: Types.SPIN_APPEAR,
+    message,
+    genre: genre || "ChasingDots"
+  }
+};
+export const spinHidden = () => {
+  return {
+    type: Types.SPIN_HIDDEN
+  }
+};
+// 显示Spin End /////////////////////////////////////////////////////////////////

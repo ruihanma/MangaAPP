@@ -1,22 +1,47 @@
 import React from "react";
-import {View} from "react-native"
+import {View, Text} from "react-native"
 // Plugins
-import Spinner from "react-native-spinkit"
+import Spinner from "react-native-spinkit";
+import {Loc} from "redux-react-native-i18n";
 // Styles
 import style from "./style"
+import {connect} from "react-redux";
 // ['CircleFlip', 'Bounce', 'Wave', 'WanderingCubes', 'Pulse', 'ChasingDots', 'ThreeBounce', 'Circle', '9CubeGrid', 'WordPress', 'FadingCircle', 'FadingCircleAlt', 'Arc', 'ArcAlt']
-export default class SpinnerComponent extends React.Component {
+ class SpinnerComponent extends React.Component {
+   constructor(props){
+     super(props);
+
+     console.log('spin.props', props);
+   }
   render() {
-    const {isVisible} = this.props;
+    const {Visible, Message, Type} = this.props;
+    if(!Visible) return null;
     return (
       <View style={style.container}>
         <Spinner
           size={this.props.size || 50}
-          isVisible={true}
-          type={this.props.type || "ChasingDots"}
+          isVisible={Visible}
+          type={Type || "ChasingDots"}
           color={this.props.color || "#fff"}
         />
+        {
+          Message &&
+          <Loc locKey={Message} style={style.text} />
+        }
       </View>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  Visible: state.util.SpinVisible,
+  Message: state.util.SpinMessage,
+  Type: state.util.SpinGenre,
+});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SpinnerComponent);

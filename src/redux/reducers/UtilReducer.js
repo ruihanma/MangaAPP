@@ -24,6 +24,11 @@ const initialUtilState = {
   // 提示信息
   ToastVisible: false,
   ToastMessage: null,
+
+  // Spin
+  SpinVisible: true,
+  SpinMessage: null,
+  SpinGenre: "ChasingDots",
 };
 
 const UtilReducer = (state = initialUtilState, action) => {
@@ -105,7 +110,7 @@ const UtilReducer = (state = initialUtilState, action) => {
       });
 
     // 提示
-    case Types.TOAST_INITAL :
+    case Types.TOAST_INITIAL :
       return Object.assign({}, state, {
       });
     case Types.TOAST_APPEAR :
@@ -117,6 +122,22 @@ const UtilReducer = (state = initialUtilState, action) => {
       return Object.assign({}, state, {
         ToastVisible: false,
         ToastMessage: null
+      });
+
+    // Spin
+    case Types.SPIN_INITIAL :
+      return Object.assign({}, state, {
+      });
+    case Types.SPIN_APPEAR :
+      return Object.assign({}, state, {
+        SpinVisible: true,
+        SpinMessage: action.message,
+        SpinGenre: action.genre,
+      });
+    case Types.SPIN_HIDDEN :
+      return Object.assign({}, state, {
+        SpinVisible: false,
+        SpinMessage: null
       });
 
     default:

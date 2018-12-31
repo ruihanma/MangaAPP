@@ -1,7 +1,8 @@
 import * as Types from './ActionType';
 // Plugins
 import {i18nActions} from 'redux-react-native-i18n';
-import {toastInitial} from "./UtilAction";
+import {toastInitial, spinInitial, spinHidden} from "./UtilAction";
+
 
 // 重置语言 /////////////////////////////////////////////////////////////////
 // 重置语言 开始
@@ -31,22 +32,26 @@ export const onResetLanguageFailure = (error) => {
 export const resetLanguage = (language, delay) => {
   return (dispatch) => {
     dispatch(onResetLanguageRequest());
+    dispatch(spinInitial("DURATION.Loading"));
     if (language) {
       if (delay) {
         setTimeout(() => {
           dispatch(i18nActions.setCurrentLanguage(language));
           dispatch(onResetLanguageSuccess());
           dispatch(toastInitial("成功", 1500));
+          dispatch(spinHidden());
         }, delay)
       }
       else {
         dispatch(i18nActions.setCurrentLanguage(language));
         dispatch(onResetLanguageSuccess());
+        dispatch(spinHidden());
       }
     }
     else {
       dispatch(onResetLanguageFailure("No Util Language Found"));
       dispatch(i18nActions.setCurrentLanguage("en"));
+      dispatch(spinHidden());
     }
   }
 };

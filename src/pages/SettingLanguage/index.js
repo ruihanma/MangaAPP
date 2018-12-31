@@ -60,11 +60,6 @@ class SettingLanguageScreen extends Component<Props> {
                updateLanguage={() => this.updateLanguage(language)}
         />
 
-        {
-          this.props.Loading &&
-          <Spinner/>
-        }
-
         <View>
           <Cell
             cellPress={() => this.toggleVisible(isVisible)}

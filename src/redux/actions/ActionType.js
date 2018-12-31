@@ -45,6 +45,11 @@ export const CLEAR_LOCAL_SUCCESS = "CLEAR_LOCAL_SUCCESS";
 export const CLEAR_LOCAL_FAILURE = "CLEAR_LOCAL_FAILURE";
 
 // 显示提示信息
-export const TOAST_INITAL = "TOAST_INITAL";
+export const TOAST_INITIAL = "TOAST_INITIAL";
 export const TOAST_APPEAR = "TOAST_APPEAR";
 export const TOAST_HIDDEN = "TOAST_HIDDEN";
+
+// 显示Spin
+export const SPIN_INITIAL = "SPIN_INITIAL";
+export const SPIN_APPEAR = "SPIN_APPEAR";
+export const SPIN_HIDDEN = "SPIN_HIDDEN";
